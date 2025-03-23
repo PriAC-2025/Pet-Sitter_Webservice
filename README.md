@@ -1,2 +1,2 @@
 # Pet-Sitter_Webservice
-API RESTful para o gerenciamento de usuários, pets, agendamentos, avaliações e pagamentos de serviços de pet sitter
+Aplicativo para conectar tutores de pets a pet sitters (bába de animais de estimação), permitindo agendamento de serviços, comunicação, avaliações e pagamento integrado.
