@@ -1,0 +1,10 @@
+
+import React from 'react';
+
+const Footer = () => (
+    <footer style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f4f4f4' }}>
+        <p>© 2025 Pet Sitter Webservice. Todos os direitos reservados.</p>
+    </footer>
+);
+
+export default Footer;

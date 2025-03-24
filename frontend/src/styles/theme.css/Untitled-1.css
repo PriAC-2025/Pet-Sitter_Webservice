@@ -1,0 +1,24 @@
+
+:root {
+    --primary-color: hwb(300 47% 15%); /* Cor primária */
+    --secondary-color: #c300ff; /* Cor secundária */
+    --text-color: #0a0a0a; /* Cor padrão de texto */
+    --background-color: #f9f9f9; /* Cor do fundo */
+    --font-family: 'Arial', sans-serif; /* Fonte padrão */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+.button-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.button-secondary {
+    background-color: var(--secondary-color);
+    color: #0a0a0a;
+}

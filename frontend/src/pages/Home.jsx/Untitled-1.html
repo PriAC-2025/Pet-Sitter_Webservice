@@ -1,0 +1,90 @@
+
+import React, { useContext } from 'react';
+import { UserContext } from '../contexts/UserContext'; // Importa o contexto
+
+const Home = () => {
+    const { user } = useContext(UserContext); // Acessa o usuário do contexto
+
+    return (
+        <div>
+            <h1>Bem-vindo ao espaço Pet-Sitter Webservice!</h1>
+            <p>Aqui você encontra mais um melhor amigo para seu pet.</p>
+            {user ? (
+                <p>Olá, {user.email}!</p>
+            ) : (
+                <p>Faça login para acessar mais funcionalidades.</p>
+            )}
+        </div>
+    );
+};
+
+export default Home;
+
+import React, { useEffect, useState } from 'react';
+import api from '../services/api'; // Importa Axios do api.js
+
+const Home = () => {
+    const [pets, setPets] = useState([]);
+
+    useEffect(() => {
+        const fetchPets = async () => {
+            try {
+                const response = await api.get('/pets'); // Endpoint de pets
+                setPets(response.data); // Atualiza estado com os dados
+            } catch (error) {
+                console.error('Erro ao buscar pets:', error);
+            }
+        };
+
+        fetchPets();
+    }, []);
+
+    return (
+        <div>
+            <h1>Lista de Pets</h1>
+            <ul>
+                {pets.map((pet) => (
+                    <li key={pet.id}>{pet.nome} - {pet.tipo}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default Home;
+
+import React, { useEffect, useState } from 'react';
+import { fetchApi } from '../services/api'; // Importa Fetch Helper do api.js
+
+const Home = () => {
+    const [pets, setPets] = useState([]);
+
+    useEffect(() => {
+        const fetchPets = async () => {
+            try {
+                const data = await fetchApi('/pets'); // Endpoint de pets
+                setPets(data); // Atualiza estado com os dados
+            } catch (error) {
+                console.error('Erro ao buscar pets:', error);
+            }
+        };
+
+        fetchPets();
+    }, []);
+
+    return (
+        <div>
+            <h1>Lista de Pets</h1>
+            <ul>
+                {pets.map((pet) => (
+                    <li key={pet.id}>{pet.nome} - {pet.tipo}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default Home;
+
+
+
